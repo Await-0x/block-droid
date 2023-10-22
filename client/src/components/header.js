@@ -22,6 +22,10 @@ function Header() {
         </Box>}
       </Link>
 
+      {location.pathname === '/create' && <Typography variant='h5'>
+        Create puzzle
+      </Typography>}
+
       <Box>
         {!dojo.address
           ? <LoadingButton variant='outlined' onClick={() => dojo.createBurner()} loading={dojo.isDeploying}>

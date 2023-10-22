@@ -1,0 +1,2 @@
+sozo build
+sozo migrate --world "0x7bfc4dc34e5e8a3c7c29604134dbf6e0e9f133aa6431d1aa69d5f08164e67b6"

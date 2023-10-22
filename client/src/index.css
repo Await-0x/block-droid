@@ -1,0 +1,245 @@
+body {
+  overflow: hidden;
+  margin: 0;
+}
+
+a {
+  text-decoration: none !important;
+  color: #FFE97F;
+}
+
+.background {
+  height: 100%;
+  background: #181618;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+.main {
+  position: absolute;
+  display: flex;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+ .backgroundEffects {
+   position: absolute;
+   z-index: 0;
+ }
+
+ .line {
+   position: fixed;
+   height: 1px;
+   background-color: #FFE97F49;
+   overflow: hidden;
+   animation-name: fadeCircle;
+   animation-iteration-count: infinite;
+   animation-timing-function: linear;
+   opacity: 0;
+ }
+
+ .line::after {
+   content: "";
+   display: block;
+   position: absolute;
+   height: 100%;
+   width: 15vw;
+   top: 0;
+   left: -50%;
+   background: linear-gradient(to right,
+       rgba(255, 255, 255, 0) 0%,
+       #FFE97F 75%,
+       #FFE97F 100%);
+   animation: drop 7s 0s infinite;
+   animation-fill-mode: forwards;
+   animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
+ }
+
+ .line-one {
+   left: -10%;
+   top: 20%;
+   width: 100vw;
+   transform: rotate(-15deg);
+   animation-duration: 10s;
+   animation-delay: 5s;
+ }
+
+ .line-two {
+   left: -10%;
+   top: 30%;
+   width: 150vw;
+   transform: rotate(-10deg);
+   animation-duration: 15s;
+   animation-delay: 10s;
+ }
+
+ .line-three {
+   left: -10px;
+   width: 105vw;
+   top: 55%;
+   transform: rotate(-5deg);
+   animation-duration: 20s;
+   animation-delay: 15s;
+ }
+
+ .line-four {
+   left: 20%;
+   bottom: 10%;
+   width: 100vw;
+   transform: rotate(-15deg);
+   animation-duration: 20s;
+   animation-delay: 20s;
+ }
+
+ .line-five {
+   left: 20%;
+   bottom: 20%;
+   width: 100vw;
+   transform: rotate(-25deg);
+   animation-duration: 25s;
+   animation-delay: 25s;
+ }
+
+ .line-six {
+   left: 30%;
+   bottom: 4%;
+   width: 100vw;
+   transform: rotate(-10deg);
+   animation-duration: 30s;
+   animation-delay: 30s;
+ }
+
+ .line-seven {
+   left: 0%;
+   top: 50%;
+   width: 70vw;
+   transform: rotate(50deg);
+   animation-duration: 40s;
+   animation-delay: 40s;
+ }
+
+ .line-eight {
+   left: -20%;
+   top: 50%;
+   width: 70vw;
+   transform: rotate(60deg);
+   animation-duration: 50s;
+   animation-delay: 50s;
+ }
+
+ .line-nine {
+   left: -30%;
+   top: 50%;
+   width: 70vw;
+   transform: rotate(65deg);
+   animation-duration: 60s;
+   animation-delay: 60s;
+ }
+
+ @keyframes drop {
+   0% {
+     left: -50%;
+   }
+
+   100% {
+     left: 110%;
+   }
+ }
+
+ .circle {
+   position: fixed;
+   border: 1px solid #FFE97F49;
+   border-radius: 100%;
+   animation-name: fadeCircle;
+   animation-iteration-count: infinite;
+   animation-timing-function: linear;
+   opacity: 0;
+ }
+
+ .circle-one {
+   width: 60vh;
+   height: 60vh;
+   top: 20vh;
+   left: 10%;
+   animation-duration: 10s;
+ }
+
+ .circle-two {
+   width: 86vh;
+   height: 86vh;
+   top: 7vh;
+   left: 7%;
+   animation-duration: 20s;
+ }
+
+ .circle-three {
+   width: 112vh;
+   height: 112vh;
+   top: -6vh;
+   left: 4%;
+   animation-duration: 30s;
+ }
+
+ .circle-four {
+   width: 138vh;
+   height: 138vh;
+   top: -19vh;
+   left: 1%;
+   animation-duration: 40s;
+   animation-delay: 5s;
+ }
+
+ .circle-five {
+   width: 164vh;
+   height: 164vh;
+   top: -32vh;
+   left: -2%;
+   animation-duration: 50s;
+ }
+
+ .circle-six {
+   width: 190vh;
+   height: 190vh;
+   top: -45vh;
+   left: -5%;
+   animation-duration: 60s;
+   animation-delay: 5s;
+ }
+
+ @keyframes fadeCircle {
+   0% {
+     opacity: 0;
+   }
+
+   20% {
+     opacity: 0;
+   }
+
+   40% {
+     opacity: 1;
+   }
+
+   60% {
+     opacity: 0;
+   }
+
+   100% {
+     opacity: 0;
+   }
+ }
+
+ #notistack-snackbar {
+  font-family: prompt;
+  font-size: 16px;
+  color: rgb(40, 39, 41);
+}
+
+.notistack-MuiContent-warning {
+  background-color: #FFE97F;
+}
+
+.notistack-MuiContent-error #notistack-snackbar, .notistack-MuiContent-success #notistack-snackbar  {
+  color: white;
+}

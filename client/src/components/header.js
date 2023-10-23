@@ -27,16 +27,11 @@ function Header() {
       </Typography>}
 
       <Box>
-        {!dojo.address
-          ? <LoadingButton variant='outlined' onClick={() => dojo.createBurner()} loading={dojo.isDeploying}>
-            Create Wallet
-          </LoadingButton>
-
-          : <Button onClick={() => { }}>
-            <Typography color='primary' sx={{ fontSize: '13px' }}>
-              {ellipseAddress(dojo.address, 4, 4)}
-            </Typography>
-          </Button>}
+        <Button onClick={() => { }}>
+          <Typography color='primary' sx={{ fontSize: '13px' }}>
+            {ellipseAddress(dojo.address, 4, 4)}
+          </Typography>
+        </Button>
       </Box>
 
     </Box>

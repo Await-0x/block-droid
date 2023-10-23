@@ -7,11 +7,10 @@ import { translateEvent } from "../helpers/events";
 import { useSnackbar } from "notistack";
 import manifest from '../helpers/manifest.json'
 
-const WORLD_ADDRESS = "0x7bfc4dc34e5e8a3c7c29604134dbf6e0e9f133aa6431d1aa69d5f08164e67b6"
-const MASTER_ADDRESS = "0x517ececd29116499f4a1b64b094da79ba08dfd54a3edaa316134c41f8160973"
-const MASTER_PRIVATE_KEY = "0x1800000000300000180000000000030000000000003006001800006600"
-const CLASH_HASH = "0x04d07e40e93398ed3c76981e72dd1fd22557a78ce36c0515f679e27f0bb5bc5f"
-const NODE_URL = "http://localhost:5050"
+const WORLD_ADDRESS = "0x1586ea3ec67a7f52e6a08294461881acd1ec3a6195dcd43b7fd839f272214ff"
+const MASTER_ADDRESS = "0x4310144d4b224ce6ad26c8d9452211f92dfd7169341568f0c79ef4f08ff3561"
+const MASTER_PRIVATE_KEY = "0x4be7353a0ff26fec8d279b06a6e62ec06cac946912080dc9941391a1f8c9662"
+const NODE_URL = "https://api.cartridge.gg/x/block-droid/katana"
 
 export const DojoContext = createContext()
 
@@ -21,17 +20,7 @@ export const DojoProvider = ({ children }) => {
   const starkProvider = new RpcProvider({ nodeUrl: NODE_URL })
   const dojoProvider = new RPCProvider(WORLD_ADDRESS, manifest, NODE_URL);
 
-  const [masterAccount] = useState(new Account(starkProvider, MASTER_ADDRESS, MASTER_PRIVATE_KEY))
-  const { create, isDeploying } = useBurner({ masterAccount: masterAccount, accountClassHash: CLASH_HASH });
-
-  const [account, setAccount] = useState()
-
-  
-  const createBurner = async () => {
-    const burnerAcc = await create()
-    console.log('Burner created', burnerAcc)
-    setAccount(burnerAcc)
-  }
+  const [account] = useState(new Account(starkProvider, MASTER_ADDRESS, MASTER_PRIVATE_KEY))
 
   const executeTx = async (contract_name, system, call_data, success_msg) => {
     if (!account) {
@@ -63,9 +52,7 @@ export const DojoProvider = ({ children }) => {
     <DojoContext.Provider
       value={{
         address: account?.address,
-        isDeploying,
         executeTx,
-        createBurner
       }}
     >
       {children}

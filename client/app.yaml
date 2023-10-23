@@ -1,0 +1,18 @@
+runtime: nodejs16
+
+handlers:
+  - url: /static
+    static_dir: build/static
+
+  - url: /(.*\.(json|ico|js|svg|txt))$
+    static_files: build/\1
+    upload: build/.*\.(json|ico|js|svg|txt)$
+
+  - url: .*
+    static_files: build/index.html
+    upload: build/index.html
+    secure: always
+
+env_variables:
+  GENERATE_SOURCEMAP: false
+  NODE_ENV: 'production'

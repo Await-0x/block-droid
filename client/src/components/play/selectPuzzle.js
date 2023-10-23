@@ -70,6 +70,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    overflow: 'hidden',
     gap: 2,
     width: '300px',
     height: '250px',
